@@ -8,7 +8,7 @@ An interactive, physics-based desktop companion with customizable charms that re
 
 Download the latest version directly from our official website:
 
-👉 **[Download Swingo](https://swingo-eta.vercel.app/)** *(replace with your website URL)*
+👉 **[Download Swingo](https://swingo-eta.vercel.app/)**
 
 ---
 
