@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Swingo Hitbox</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: transparent !important;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #hitbox-area {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        /* Subtle non-zero alpha gives Windows hit-testing an active surface */
+        background: rgba(255, 255, 255, 0.001);
+        cursor: grab;
+      }
+      #hitbox-area:active {
+        cursor: grabbing;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hitbox-area"></div>
+    <script type="module" src="/src/hitbox/hitbox-entry.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "name": "swingo",
+  "version": "1.0.1",
+  "description": "Swingo - Desktop Physics Companion",
+  "author": "Surya Perumal Jeyapandi",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"electron .\"",
+    "build:renderer": "vite build",
+    "build:exe": "npm run build:renderer && electron-builder --win --x64",
+    "build:appx": "npm run build:renderer && electron-builder --win appx --x64"
+  },
+  "build": {
+    "appId": "com.swingo.desktop",
+    "productName": "Swingo",
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "build"
+    },
+    "icon": "build/icon.ico",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "public/charms",
+        "to": "charms",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "appx",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "appx": {
+      "applicationId": "Swingo",
+      "identityName": "SuryaPerumalJeyapandi.Swingo",
+      "publisher": "CN=57DB6372-A6F2-477D-8329-703036FF39AF",
+      "publisherDisplayName": "Surya Perumal Jeyapandi"
+    }
+  }
+}
